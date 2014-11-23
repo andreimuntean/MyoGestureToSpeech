@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hackasoton.myogesturetospeech" >
 
+    // Required for communicating with the Myo device
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_LE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"

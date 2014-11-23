@@ -3,16 +3,10 @@ package com.hackasoton.myogesturetospeech;
 import android.app.Activity;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.Menu;
-import android.view.View;
-
-import com.thalmic.myo.Hub;
 
 public class MainActivity extends Activity
 {
-    private String TAG = "MainActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -47,13 +41,7 @@ public class MainActivity extends Activity
     {
         // Inflates the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return true;
     }
-
-    public void speakText(View view)
-    {
-        Voice.speak("Hello World!");
-    }
-
-
 }

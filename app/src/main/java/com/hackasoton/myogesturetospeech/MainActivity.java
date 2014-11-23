@@ -1,7 +1,5 @@
 package com.hackasoton.myogesturetospeech;
 
-
-
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -14,28 +12,33 @@ import com.thalmic.myo.Hub;
 public class MainActivity extends Activity
 {
     private String TAG = "MainActivity";
-    TTS tts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tts = new TTS(getApplicationContext());
-        Hub hub = Hub.getInstance();
-        if (!hub.init(this)) {
-            Log.e(TAG, "Could not initialize the Hub.");
+        /*if (!Hub.getInstance().init(this))
+        {
+            Log.e(TAG, "Could not initialize the hub.");
             finish();
+
             return;
-        }
+        }*/
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        Voice.setContext(getApplicationContext());
     }
 
     @Override
     public void onPause()
     {
+        Voice.stop();
         super.onPause();
     }
 
@@ -49,7 +52,7 @@ public class MainActivity extends Activity
 
     public void speakText(View view)
     {
-        tts.speakText(getApplicationContext());
+        Voice.speak("Hello World!");
     }
 
 
